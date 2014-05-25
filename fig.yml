@@ -1,0 +1,14 @@
+main:
+  build: .
+  links:
+    - docker
+
+docker:
+  image: jpetazzo/dind
+  privileged: true
+  expose:
+    - "4444"
+  environment:
+    PORT: 4444
+  volumes:
+    - "/var/lib/docker:/var/lib/docker"
